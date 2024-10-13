@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Flutter Challange Reqres",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
