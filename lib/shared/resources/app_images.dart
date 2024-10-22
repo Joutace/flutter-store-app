@@ -3,4 +3,5 @@ class AppImages {
   static const splash = "$root/splash.png";
   static const backgroundLogin = "$root/backgroundLogin.png";
   static const loginLogo = "$root/loginLogo.png";
+  static const profilePlaceholder = "$root/profilePlaceholder.png";
 }

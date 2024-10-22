@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_challange/modules/homepage/home_page.dart';
 import 'package:flutter_challange/modules/login/login_page.dart';
 import 'package:flutter_challange/modules/splash/splash_page.dart';
 import 'package:go_router/go_router.dart';
@@ -52,6 +53,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppRoutes.login,
       builder: (_, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: AppRoutes.home,
+      pageBuilder: (_, state) => leftToRightTransition(state, HomePage(),),
     ),
   ],
 );
