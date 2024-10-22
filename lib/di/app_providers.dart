@@ -1,6 +1,8 @@
 import 'package:flutter_challange/domain/repository/auth_repository_impl.dart';
 import 'package:flutter_challange/domain/repository/auth_repository_model.dart';
+import 'package:flutter_challange/modules/homepage/home_bloc.dart';
 import 'package:flutter_challange/modules/login/login_bloc.dart';
+import 'package:flutter_challange/modules/user_drawer/user_drawer_bloc.dart';
 import 'package:flutter_challange/services/networking_engine.dart';
 import 'package:flutter_challange/services/networking_engine_impl.dart';
 import 'package:flutter_challange/services/preferences.dart';
@@ -25,6 +27,14 @@ class AppProviders {
   void _blocs() {
     getIt.registerFactory(() => LoginBloc(
           repository: getIt.get<AuthRepository>(),
+        ));
+    getIt.registerFactory(() => HomeBloc(
+          userService: getIt.get(),
+        ));
+
+    getIt.registerFactory(() => UserDrawerBloc(
+          authRepository: getIt.get<AuthRepository>(),
+          userService: getIt.get<UserService>(),
         ));
   }
 
