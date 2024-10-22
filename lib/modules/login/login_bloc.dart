@@ -15,7 +15,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         emit(LoginLoadingState());
 
         await repository.doLogin(email: event.email, password: event.password);
-
         emit(LoginSuccessState());
       } on AppException catch (exception) {
         emit(LoginErrorState(exception: exception));
