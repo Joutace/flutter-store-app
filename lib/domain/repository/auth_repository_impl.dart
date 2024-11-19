@@ -45,7 +45,7 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<Login> doLoginWithGoogle() async {
     try {
-      GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
+      // GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
       //TODO: parse response from google to UserModel
       // final response = await googleSignIn.signIn();
 
