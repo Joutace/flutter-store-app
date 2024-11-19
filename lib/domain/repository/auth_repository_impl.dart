@@ -26,7 +26,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required this.prefs,
   });
 
-  static const _loginUrl = '/login', _userUrl = '/user/2';
+  static const _loginUrl = '/login';
 
   @override
   Future<dynamic> doLogin({required email, required password}) async {
@@ -46,8 +46,8 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Login> doLoginWithGoogle() async {
     try {
       GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
-
-      final response = await googleSignIn.signIn();
+      //TODO: parse response from google to UserModel
+      // final response = await googleSignIn.signIn();
 
       final login = '';
 
