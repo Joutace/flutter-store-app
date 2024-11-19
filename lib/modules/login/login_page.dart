@@ -125,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: <Widget>[
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 20),
@@ -186,6 +186,33 @@ class _LoginPageState extends State<LoginPage> {
               },
               label: 'Login',
               isLoading: state is LoginLoadingState,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 24),
+              child: Center(
+                child: Text(
+                  'Ou entre usando',
+                  style: AppTextStyles.body1.copyWith(color: Colors.white),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SocialLoginButton(
+                    image: AppImages.google,
+                    label: 'Google',
+                    onPressed: () => _bloc.doLoginWithGoogle(),
+                  ),
+                  SocialLoginButton(
+                    image: AppImages.facebook,
+                    label: 'Facebook',
+                    onPressed: () {},
+                  ),
+                ],
+              ),
             ),
           ],
         ),

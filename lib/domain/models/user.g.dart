@@ -13,9 +13,9 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       json['name'] as String,
       json['year'] as String,
       json['color'] as String,
-      json['pantone_value'] as String,
-      json['first_name'] as String,
-      json['last_name'] as String,
+      json['pantoneValue'] as String,
+      json['firstName'] as String,
+      json['lastName'] as String,
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
@@ -23,9 +23,9 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
       'avatar': instance.avatar,
       'name': instance.name,
-      'first_name': instance.first_name,
-      'last_name': instance.last_name,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
       'year': instance.year,
       'color': instance.color,
-      'pantone_value': instance.pantone_value,
+      'pantoneValue': instance.pantoneValue,
     };

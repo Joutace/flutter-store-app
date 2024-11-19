@@ -111,8 +111,8 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(state.user.first_name),
-                                  Text(state.user.last_name),
+                                  Text(state.user.firstName),
+                                  Text(state.user.lastName),
                                   Text(state.user.email ?? ''),
                                   Text(state.user.year)
                                 ],
