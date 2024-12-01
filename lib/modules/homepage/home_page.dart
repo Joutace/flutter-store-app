@@ -10,6 +10,7 @@ import 'package:flutter_challange/shared/themes/app_colors.dart';
 import 'package:flutter_challange/shared/themes/app_text_styles.dart';
 import 'package:flutter_challange/shared/widgets/app_scaffold.dart';
 
+// ignore: must_be_immutable
 class HomePage extends StatefulWidget {
   Function()? onRefresh;
 
@@ -111,8 +112,8 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(state.user.first_name),
-                                  Text(state.user.last_name),
+                                  Text(state.user.firstName),
+                                  Text(state.user.lastName),
                                   Text(state.user.email ?? ''),
                                   Text(state.user.year)
                                 ],

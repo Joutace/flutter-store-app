@@ -1,3 +1,4 @@
+import 'package:flutter_challange/domain/models/login.dart';
 import 'package:flutter_challange/domain/models/user.dart';
 
 abstract class AuthRepository {
@@ -6,4 +7,6 @@ abstract class AuthRepository {
   Future<void> authenticate({required User userData});
 
   Future<void> logoff();
+
+  Future<Login> doLoginWithGoogle();
 }

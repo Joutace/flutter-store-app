@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:flutter_challange/di/app_providers.dart';
 import 'package:flutter_challange/domain/models/login.dart';
@@ -10,6 +9,7 @@ import 'package:flutter_challange/services/preferences.dart';
 import 'package:flutter_challange/services/user_service.dart';
 import 'package:flutter_challange/shared/Environment.dart';
 import 'package:flutter_challange/shared/widgets/app_exception.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 enum AuthenticationStatus { unknown, authenticated, unauthenticated }
 
@@ -26,7 +26,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required this.prefs,
   });
 
-  static const _loginUrl = '/login', _userUrl = '/user/2';
+  static const _loginUrl = '/login';
 
   @override
   Future<dynamic> doLogin({required email, required password}) async {
@@ -37,6 +37,21 @@ class AuthRepositoryImpl implements AuthRepository {
       final user = await fetchMockedUser();
       authenticate(userData: user);
       return user;
+    } catch (e) {
+      throw AppException(e);
+    }
+  }
+
+  @override
+  Future<Login> doLoginWithGoogle() async {
+    try {
+      GoogleSignIn googleSignIn = GoogleSignIn(scopes: ['email']);
+      //TODO: parse response from google to UserModel
+      final response = await googleSignIn.signIn(); 
+      print(response);
+      final login = ''; 
+
+      return login as Login;
     } catch (e) {
       throw AppException(e);
     }
@@ -60,10 +75,10 @@ Future<User> fetchMockedUser() async {
     "email": "janet.weaver@reqres.in",
     "year": "1980",
     "name": "Weaver",
-    "first_name": "Janet",
-    "last_name": "Weaver",
+    "firstName": "Janet",
+    "lastName": "Weaver",
     "color": "#f5eb64",
-    "pantone_value": "20-4973",
+    "pantoneValue": "20-4973",
     "avatar": "https://reqres.in/img/faces/2-image.jpg"
   };
 

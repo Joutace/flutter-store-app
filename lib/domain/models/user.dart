@@ -7,11 +7,11 @@ class User {
   final double id;
   String? avatar;
   final String name;
-  final String first_name;
-  final String last_name;
+  final String firstName;
+  final String lastName;
   final String year;
   final String color;
-  final String pantone_value;
+  final String pantoneValue;
 
   User(
     this.email,
@@ -20,9 +20,9 @@ class User {
     this.name,
     this.year,
     this.color,
-    this.pantone_value,
-    this.first_name,
-    this.last_name,
+    this.pantoneValue,
+    this.firstName,
+    this.lastName,
   );
 
   factory User.fromJson(Map<String, dynamic> data) => _$UserFromJson(data);

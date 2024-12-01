@@ -20,9 +20,25 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         emit(LoginErrorState(exception: exception));
       }
     });
+
+    on<DoLoginWithGoogleEvent>((event, emit) async {
+      try {
+        emit(LoginLoadingState());
+
+        await repository.doLoginWithGoogle();
+
+        emit(LoginSuccessState());
+      } on AppException catch (exception) {
+        emit(LoginErrorState(exception: exception));
+      }
+    });
   }
 
   doLogin({required String email, required String password}) {
     add(DoLoginEvent(email: email, password: password));
+  }
+
+  doLoginWithGoogle() {
+    add(DoLoginWithGoogleEvent());
   }
 }

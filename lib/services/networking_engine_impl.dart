@@ -1,12 +1,11 @@
 import 'dart:convert';
-import 'dart:developer';
-
+ 
 import 'package:flutter_challange/services/preferences.dart';
 import 'package:flutter_challange/shared/Environment.dart';
 import 'package:flutter_challange/shared/HttpResponseExtensions.dart';
 import 'package:http/http.dart' as http;
 
-import '../di/app_providers.dart';
+import 'package:flutter_challange/di/app_providers.dart';
 import 'networking_engine.dart';
 
 class NetworkingEngineImpl implements NetworkingEngine {
